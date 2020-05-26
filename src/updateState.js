@@ -1,8 +1,8 @@
-//import stars from './addStars'
+//import addSnow from './addSnow'
 import charMove from './charMove'
-import { MeshMatcapMaterial } from 'three'
 
-//global.starField = new stars()
+
+//let snow = new addSnow()
 
 let pi4 = Math.PI/4
 let pi6 = Math.PI/6
@@ -28,12 +28,16 @@ export default function updateState() {
             }
         
         }
-        //camera.position.z += ((me.mouse.curr.x/2) + me.mouse.curr.y)/sensitivity
-        //camera.position.x += ((me.mouse.curr.x/2) - me.mouse.curr.y)/sensitivity
+    
         
         if(!hook){
             if(me.keyboard.which[87]){//W
-                charMove();
+                charMove(87);
+
+                hook = true;
+            }
+            if(me.keyboard.which[83]){//S
+                charMove(83);
 
                 hook = true;
             }
@@ -68,9 +72,11 @@ export default function updateState() {
         //D68
         //SPACE32
     }
+    
     lightMount.rotation.y += 0.01;
-   // starField.starWhite();
-   // starField.starBlue();
+    //snow.starWhite();
+    //snow.starBlue();
+    
     me.mouse.curr.x = 0
     me.mouse.curr.y = 0
     

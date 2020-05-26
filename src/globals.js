@@ -22,7 +22,8 @@ global.yAxis = new THREE.Object3D();
 scene.add(yAxis)
 
 global.ready = false;
-global.orthoScale = 20;
+global.orthoScale = 15;
+global.tableScale = 40;
 
 global.pi2 = Math.PI/2
 global.pi4 = Math.PI/4
