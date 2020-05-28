@@ -73,7 +73,7 @@ export default class Enemy {
         let abs = Math.abs
         let x = zp.x - ep.x
         let z = zp.z - ep.z
-        console.log(x,z)
+    
         if(abs(x) > abs(z)){          
             return { way: 'x', sign: Math.sign(x) }     
         } else if(x === 0 && z === 0){            
