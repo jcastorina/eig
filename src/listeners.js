@@ -1,5 +1,3 @@
-import { Scene } from "three";
-
 function onDocumentMouseMove(event) {
     if(lockedMouse){ 
         vmouse.x = (event.clientX / window.innerWidth) * 2 - 1 - vmouseOffset.x; 
@@ -42,17 +40,21 @@ function onDocumentKeyDown(event){
     }
 
     if(event.which === 79){//O
+        
+        frustumSize = defaultFrustumSize
         camera = new THREE.OrthographicCamera( frustumSize * aspect / - 2, frustumSize * aspect / 2, frustumSize / 2, frustumSize / -2, -frustumSize, frustumSize )
         camera.rotation.order = "YXZ"
         camera.rotation.x = -pi6 
         camera.rotation.y = -pi4
+        camera.position.copy(zeliot.mesh.position)
     }
     if(event.which === 80){//P
         camera = new THREE.PerspectiveCamera(37,1,0.1,2000)
         
-        camera.rotation.copy(char.rotation)
+        camera.rotation.copy(zeliot.mesh.rotation)
         camera.rotation.order = "YXZ"
         camera.rotation.y += pi4
+        camera.position.copy(zeliot.mesh.position)
         //camera.updateProjectionMatrix()
  
     }
@@ -65,7 +67,7 @@ function onDocumentKeyDown(event){
 function onDocumentKeyUp(event){
     me.keyboard.which[event.which] = false;
     me.keyboard.down = false;
-    hook = false;
+    //hook = false;
 }
 
 renderer.domElement.onclick = () => {
@@ -101,9 +103,11 @@ function scroll (event) {
     if(camera.type === "PerspectiveCamera"){
         newCam.rotation.x = -pi6 
         newCam.rotation.y = -pi4
+        newCam.position.copy(zeliot.mesh.position)
         camera = newCam
     } else {
         newCam.rotation.copy(camera.rotation)
+        newCam.position.copy(zeliot.mesh.position)
         camera = newCam
     }
     

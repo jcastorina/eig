@@ -35,7 +35,7 @@ export default function addPlayer(){
         
         char.rotation.y = -pi2 -pi4 //hehe
         char.dir = 2
-
+        char.moving = false;
   
 
         char.add(lightMount)
