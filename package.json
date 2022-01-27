@@ -30,7 +30,7 @@
     "ndarray-ops": "^1.2.2",
     "nodemon": "^2.0.4",
     "style-loader": "^1.2.1",
-    "three": "^0.116.1",
+    "three": "^0.137.0",
     "three-gltf-loader": "^1.111.0",
     "vox-to-gltf": "^0.6.2",
     "webpack": "^4.43.0",
